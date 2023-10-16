@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\AdminPage;
 use App\Models\Message;
 use Illuminate\Support\Facades\Route;
 
@@ -29,4 +30,5 @@ Route::middleware([
             'messages' => $messages
         ]);
     })->name('dashboard');
+    Route::get('/admin', AdminPage::class)->name('adminPage');
 });
