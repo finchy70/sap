@@ -7,14 +7,36 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg"><div class="p-6 lg:p-8 bg-white border-b border-gray-200">
-                <div class="flex row justify-start items-center">
-                    <x-application-logo class="block h-12 w-auto" />
-                    <div class="ml-8 text-3xl">EPS SAP - Safety Bulletins and Information</div>
+            <div class="lg:grid lg:grid-cols-12 lg:gap-2">
+                <div class="lg:col-span-9">
+                    <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                        <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
+                            <div class="flex row justify-between items-center">
+                                <div class="row flex items-center">
+                                    <div class="hidden lg:block">
+                                        <x-application-logo class="block h-12 w-auto" />
+                                    </div>
+                                    <div class="ml-4 text-lg lg:text-2xl">EPS SAP - Safety Bulletins and Information</div>
+                                </div>
+                                @if(auth()->user()->admin)
+                                    <button class="bg-gray-400 text-gray-100 px-2 py-1 text-xs rounded-lg shadow-lg">New</button>
+                                @endif
+                            </div>
+                            @foreach($messages as $message)
+                                <livewire:message-panel :message="$message"/>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
-                @foreach($messages as $message)
-                    <x-message :message="$message"/>
-                @endforeach
+                <div class="lg:col-span-3">
+                    <div class="mt-4 lg:mt-0 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                        <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
+                            <div class="flex row justify-start items-center">
+                                <div class="ml-4 text-lg lg:text-2xl">Documents</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
