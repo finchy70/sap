@@ -26,13 +26,65 @@
                                 <livewire:message-panel :message="$message"/>
                             @endforeach
                         </div>
+                        <div class="p-2">
+                            {{$messages->links()}}
+                        </div>
+
                     </div>
                 </div>
                 <div class="lg:col-span-3">
                     <div class="mt-4 lg:mt-0 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                         <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
-                            <div class="flex row justify-start items-center">
-                                <div class="ml-4 text-lg lg:text-2xl">Documents</div>
+                            <div class="ml-4 text-lg lg:text-2xl">Documents</div>
+                            <div class="mt-8 p-2 bg-gray-100 rounded-xl">
+                                <div>Electrical Safety Rules</div>
+                                <div class="text-xs">Version 1.3</div>
+                                <button class="mt-2 px-2 py-1 bg-indigo-500 text-gray-100 rounded-lg shadow-lg text-xs">Download</button>
+                            </div>
+                            <div class="mt-2 p-2 bg-gray-100 rounded-xl">
+                                <div>HV Processes and Procedures</div>
+                                <div class="text-xs">Version 1.3</div>
+                                <button class="mt-2 px-2 py-1 bg-indigo-500 text-gray-100 rounded-lg shadow-lg text-xs">Download</button>
+                            </div>
+                            <div class="mt-2 p-2 bg-gray-100 rounded-xl">
+                                <div>HV Systems Approved Procedures</div>
+                                <div class="text-xs">Version 1.3</div>
+                                <button class="mt-2 px-2 py-1 bg-indigo-500 text-gray-100 rounded-lg shadow-lg text-xs">Download</button>
+                            </div>
+                            <div class="mt-2 p-2 bg-gray-100 rounded-xl">
+                                <div>EPS HV Guidelines</div>
+                                <div class="text-xs">Version 1.3</div>
+                                <button class="mt-2 px-2 py-1 bg-indigo-500 text-gray-100 rounded-lg shadow-lg text-xs">Download</button>
+                            </div>
+                            <div class="mt-2 p-2 bg-gray-100 rounded-xl">
+                                <div>EPS Approved Terminology</div>
+                                <div class="text-xs">Version 1.3</div>
+                                <button class="mt-2 px-2 py-1 bg-indigo-500 text-gray-100 rounded-lg shadow-lg text-xs">Download</button>
+                            </div>
+                            <div class="mt-2 p-2 bg-gray-100 rounded-xl">
+                                <div>Emergency Contact Details</div>
+                                <div class="text-xs">Version 1.3</div>
+                                <button class="mt-2 px-2 py-1 bg-indigo-500 text-gray-100 rounded-lg shadow-lg text-xs">Download</button>
+                            </div>
+                            <div class="mt-2 p-2 bg-gray-100 rounded-xl">
+                                <div>EPS Approved Persons Details</div>
+                                <div class="text-xs">Version 1.3</div>
+                                <button class="mt-2 px-2 py-1 bg-indigo-500 text-gray-100 rounded-lg shadow-lg text-xs">Download</button>
+                            </div>
+                            <div class="mt-2 p-2 bg-gray-100 rounded-xl">
+                                <div>ARC Flash Policy</div>
+                                <div class="text-xs">Version 1.3</div>
+                                <button class="mt-2 px-2 py-1 bg-indigo-500 text-gray-100 rounded-lg shadow-lg text-xs">Download</button>
+                            </div>
+                            <div class="mt-2 p-2 bg-gray-100 rounded-xl">
+                                <div>System Safety Toolbox Talks</div>
+                                <div class="text-xs">Version 1.3</div>
+                                <button class="mt-2 px-2 py-1 bg-indigo-500 text-gray-100 rounded-lg shadow-lg text-xs">Download</button>
+                            </div>
+                            <div class="mt-2 p-2 bg-gray-100 rounded-xl">
+                                <div>EPS Annual HV Maintenance</div>
+                                <div class="text-xs">Version 1.3</div>
+                                <button class="mt-2 px-2 py-1 bg-indigo-500 text-gray-100 rounded-lg shadow-lg text-xs">Download</button>
                             </div>
                         </div>
                     </div>

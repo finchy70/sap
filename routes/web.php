@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use App\Livewire\AdminPage;
+use App\Livewire\Dashboard;
 use App\Models\Message;
 use Illuminate\Support\Facades\Route;
 
@@ -24,11 +26,6 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        $messages = Message::query()->orderBy('created_at', 'desc')->get();
-        return view('dashboard', [
-            'messages' => $messages
-        ]);
-    })->name('dashboard');
+    Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/admin', AdminPage::class)->name('adminPage');
 });
