@@ -13,16 +13,18 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.1/trix.js" defer></script>
 
         <!-- Styles -->
-        @livewireStyles
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.1/trix.css" />
+        <link href="{{asset('css/custom.css')}}" rel="stylesheet" />
+        {{--        @livewireStyles--}}
     </head>
     <body class="font-sans antialiased">
         <x-banner />
 
         <div class="min-h-screen bg-gray-100">
             @livewire('navigation-menu')
-
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow">
@@ -34,12 +36,16 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $slot }}
+                </div>
             </main>
         </div>
 
         @stack('modals')
 
-        @livewireScripts
+
+{{--        @livewireScripts--}}
     </body>
+
 </html>
