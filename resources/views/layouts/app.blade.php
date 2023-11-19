@@ -13,12 +13,11 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.1/trix.js" defer></script>
 
         <!-- Styles -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.1/trix.css" />
         <link href="{{asset('css/custom.css')}}" rel="stylesheet" />
-        {{--        @livewireStyles--}}
+        @trixassets
     </head>
     <body class="font-sans antialiased">
         <x-banner />
@@ -45,7 +44,12 @@
         @stack('modals')
 
 
-{{--        @livewireScripts--}}
+        <x-toaster-hub />
     </body>
 
 </html>
+
+
+
+
+

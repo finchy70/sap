@@ -21,13 +21,7 @@ class DatabaseSeeder extends Seeder
             'admin' => true,
         ]);
 
-        Message::query()->create([
-            'title' => 'New Title.',
-            'body' => 'Body',
-            'user_id' => 1
-        ]);
 
-        Message::factory()->count(3)->create();
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

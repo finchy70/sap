@@ -19,7 +19,7 @@
                                     <div class="ml-4 text-lg lg:text-2xl">EPS SAP - Safety Bulletins and Information</div>
                                 </div>
                                 @if(auth()->user()->admin)
-                                    <a href="{{route('new-message')}}" class="bg-green-400 text-gray-800 px-2 py-1 text-xs rounded-lg shadow-lg">New</a>
+                                    <a href="{{route('messages.create')}}" class="bg-green-400 text-gray-800 px-2 py-1 text-xs rounded-lg shadow-lg">New</a>
                                 @endif
                             </div>
                             @foreach($messages as $message)

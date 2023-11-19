@@ -8,7 +8,6 @@ use Livewire\Component;
 class MessagePanel extends Component
 {
     public ?Message $message = null;
-    public string $body = '';
     public string $title = '';
     public ?int $id = null;
 

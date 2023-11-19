@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\MessageController;
-use App\Http\Controllers\UploadController;
 use App\Livewire\AdminPage;
 use App\Livewire\Dashboard;
 use App\Livewire\NewMessage;
@@ -29,8 +28,8 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
-    Route::get('/new-message', NewMessage::class)->name('new-message');
     Route::get('/admin', AdminPage::class)->name('adminPage');
-    Route::post('/uploads',[UploadController::class, 'upload']);
-    Route::post('/uploads/remove', [UploadController::class, 'remove']);
+
+    Route::get('/new-message', [MessageController::class, 'create'])->name('messages.create');
+    Route::post('/store-message', [MessageController::class, 'store'])->name('messages.store');
 });

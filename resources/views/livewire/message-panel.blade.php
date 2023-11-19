@@ -5,8 +5,10 @@
             <button wire:click="editMessage({{$message->id}})" class="bg-green-200 text-gay-300 px-2 py-1 text-xs rounded-lg shadow-lg">Edit</button>
         @endif
     </h1>
-    <div class="text-sm">
-        {{$message->body}}
+    <div class="text-sm" readonly disabled="disabled">
+
+        {!! $message->trixRichText[0]['content'] !!}
+
     </div>
     <hr class="my-1 border-1 border-gray-400">
     <div class="row flex justify-between">
