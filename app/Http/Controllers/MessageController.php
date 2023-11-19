@@ -13,9 +13,9 @@ class MessageController extends Controller
     {
         return view('messages.create');
     }
+
     public function store(Request $request)
     {
-
         $request->validate([
             'title' => 'required',
         ]);
@@ -29,5 +29,19 @@ class MessageController extends Controller
 
         Toaster::success('New Bulletin created.');
         return redirect(route('dashboard'));
+    }
+
+    public function edit(Message $message)
+    {
+        if(!auth()->user()->admin) {
+            Toaster::error('Only Admin users can edit bulletins.');
+            return redirect()->back();
+        } else {
+            return view('messages.edit',
+            [
+                'message' => $message
+            ]);
+        }
+
     }
 }
