@@ -28,7 +28,7 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
-    Route::get('/admin', AdminPage::class)->name('adminPage');
+    Route::get('/user-admin', AdminPage::class)->name('userAdminPage');
 
     Route::get('message/{message}/edit', [MessageController::class, 'edit'])->name('messages.edit');
     Route::get('/new-message', [MessageController::class, 'create'])->name('messages.create');
