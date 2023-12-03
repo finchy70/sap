@@ -26,11 +26,11 @@
                                 <livewire:message-panel :message="$message"/>
                             @endforeach
                         </div>
-                        @if($messages->count() > 10)
-                            <div class="p-2">
-                                {{$messages->links()}}
-                            </div>
-                        @endif
+
+                        <div class="p-2">
+                            {{$messages->links()}}
+                        </div>
+
 
                     </div>
                 </div>

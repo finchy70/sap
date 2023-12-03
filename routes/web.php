@@ -33,4 +33,5 @@ Route::middleware([
     Route::get('message/{message}/edit', [MessageController::class, 'edit'])->name('messages.edit');
     Route::get('/new-message', [MessageController::class, 'create'])->name('messages.create');
     Route::post('/store-message', [MessageController::class, 'store'])->name('messages.store');
+    Route::patch('/message/{message}/update', [MessageController::class, 'update'])->name('messages.update');
 });

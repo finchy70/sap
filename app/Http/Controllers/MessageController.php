@@ -42,6 +42,38 @@ class MessageController extends Controller
                 'message' => $message
             ]);
         }
+    }
+
+    public function update(Request $request, Message $message)
+    {
+        if (!auth()->user()->admin) {
+            Toaster::error('Only Admin users can edit bulletins.');
+            return redirect()->back();
+        } else {
+            $request->validate([
+                'title' => 'required',
+            ]);
+
+            $message->update([
+                'title' => request('title'),
+                'user_id' => auth()->user()->id,
+                'message-trixFields' => request('message-trixFields'),
+                'attachment-message-trixFields' => request('attachment-message-trixFields')
+            ]);
+            Toaster::success('You have successfully updated a bulletin.');
+            return redirect(route('dashboard'));
+
+        }
+
+
+//        $message = Message
+
+        Message::update([
+            'title' => request('title'),
+            'user_id' => auth()->user()->id,
+            'message-trixFields' => request('message-trixFields'),
+            'attachment-message-trixFields' => request('attachment-message-trixFields')
+        ]);
 
     }
 }

@@ -63,4 +63,10 @@ class User extends Authenticatable
     public function messages(): HasMany {
         return $this->hasMany(Message::class);
     }
+
+    public function scopeSearch($query, $value)
+    {
+        $query->where('name', 'like', "%$value%")
+            ->orWhere('email', 'like', "%$value%");
+    }
 }
