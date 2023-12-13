@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -28,6 +29,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'client_id',
+        'eps_user_type'
     ];
 
     /**
@@ -68,5 +71,10 @@ class User extends Authenticatable
     {
         $query->where('name', 'like', "%$value%")
             ->orWhere('email', 'like', "%$value%");
+    }
+
+    public function client(): BelongsTo
+    {
+        return $this->belongsTo(Client::class);
     }
 }

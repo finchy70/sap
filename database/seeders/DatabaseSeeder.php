@@ -18,11 +18,10 @@ class DatabaseSeeder extends Seeder
             'name' => 'Paul Finch',
             'email' => 'finchy70@gmail.com',
             'password' => bcrypt('shandy70'),
-            'admin' => true,
+            'eps_user_type' => 'admin',
         ]);
 
-
-         \App\Models\User::factory(100)->create();
-
+        \App\Models\User::factory(5)->create();
+        \App\Models\Client::factory(10)->create();
     }
 }

@@ -12,7 +12,7 @@
                     <h1 class="text-3xl font-semibold leading-6 text-gray-900">Users</h1>
                 </div>
                 <div class="sm:ml-16 sm:mt-0 sm:flex-none">
-                    <button type="button" class="rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add user</button>
+                    <a href="{{route('users.new')}}" class="rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add user</a>
                 </div>
             </div>
         </div>
@@ -40,6 +40,7 @@
                                 Name
                             </th>
                             <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 md:table-cell">Email</th>
+                            <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 md:table-cell">Company</th>
                             <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Role</th>
                             <th scope="col" class="hidden pl-3 py-3.5 text-right text-sm font-semibold text-gray-900 sm:table-cell"></th>
                         </tr>
@@ -53,12 +54,15 @@
                                 <td class="hidden px-3 py-4 text-sm text-gray-500 md:table-cell">
                                     {{$user->email}}
                                 </td>
+                                <td class="hidden px-3 py-4 text-sm text-gray-500 md:table-cell">
+                                    {{$user->client == null ? 'EPS' : $user->client->name}}
+                                </td>
                                 <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">
-                                    {{$user->admin ? 'Admin' : 'User'}}
+                                    {{$user->eps_user_type != null ? ucfirst($user->eps_user_type) : ''}}
                                 </td>
                                 <td class="relative py-4 pl-3 text-right text-sm font-medium">
                                     @if(auth()->user()->id != $user->id)
-                                        <a href="#" class="mr-2 text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Lindsay Walton</span></a>
+                                        <a href="{{route('users.edit', $user)}}" class="mr-2 text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Lindsay Walton</span></a>
                                     @else
                                         <span></span>
                                     @endif
@@ -67,11 +71,11 @@
                         @endforeach
                         </tbody>
                     </table>
-                    @if($users->count() >= $perPage)
-                        <div class="mt-4 bg-gray-50 p-2 rounded-xl overflow-hidden">
-                            {{$users->links()}}
-                        </div>
-                    @endif
+
+                    <div class="mt-4 bg-gray-50 p-2 rounded-xl overflow-hidden">
+                        {{$users->links()}}
+                    </div>
+
                 </div>
             </div>
         </div>

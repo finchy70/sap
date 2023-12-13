@@ -20,7 +20,7 @@ class AdminPage extends Component
      */
     public function mount(): mixed
     {
-        if(!auth()->user()->admin) {
+        if(auth()->user()->eps_user_type != 'admin') {
             Toaster::error('Only admin users can access the User Admin page.');
             return redirect(route('dashboard'));
         }
@@ -39,7 +39,7 @@ class AdminPage extends Component
     public function render()
     {
         return view('livewire.admin-page', [
-            'users' => User::query()->search($this->search)->orderBy('name')->paginate($this->perPage)
+            'users' => User::query()->search($this->search)->orderBy('name')->with('client')->paginate($this->perPage)
         ]);
     }
 }

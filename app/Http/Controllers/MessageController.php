@@ -65,15 +65,5 @@ class MessageController extends Controller
 
         }
 
-
-//        $message = Message
-
-        Message::update([
-            'title' => request('title'),
-            'user_id' => auth()->user()->id,
-            'message-trixFields' => request('message-trixFields'),
-            'attachment-message-trixFields' => request('attachment-message-trixFields')
-        ]);
-
     }
 }

@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\UserController;
 use App\Livewire\AdminPage;
 use App\Livewire\Dashboard;
 use App\Livewire\NewMessage;
+use App\Livewire\Users\EditUser;
+use App\Livewire\Users\NewUser;
 use App\Models\Message;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +32,8 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/user-admin', AdminPage::class)->name('userAdminPage');
+    Route::get('/user-add', NewUser::class)->name('users.new');
+    Route::get('/user-edit/{user}', EditUser::class)->name('users.edit');
 
     Route::get('message/{message}/edit', [MessageController::class, 'edit'])->name('messages.edit');
     Route::get('/new-message', [MessageController::class, 'create'])->name('messages.create');
